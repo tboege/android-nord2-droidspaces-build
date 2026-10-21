@@ -1,0 +1,15 @@
+# Build products / nested trees
+out/
+kernel_denniz/
+toolchains/
+history
+
+# Logs / caches
+docs/*.log
+docs/*.time
+docs/config-before-*
+**/__pycache__/
+*.apk
+
+# Local tooling downloads
+scripts/.cache/
