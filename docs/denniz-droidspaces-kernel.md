@@ -1,10 +1,20 @@
 # OnePlus Nord 2 (denniz): kerne til LineageOS 23.2 og DroidSpaces
 
-Gren `lineage-23.2` i `kernel_denniz`. Kernen er 4.19.325, non-GKI, MediaTek MT6893. Defconfig er `arch/arm64/configs/mt6893_defconfig` (`CONFIG_MACH_MT6893`, projekt `k6893v1_64`). `build.config.cupida` hører til en Realme-kerne og bruges ikke.
+Gren `droidspaces` (baseret på `lineage-23.2`) i `kernel_denniz`. Kernen er 4.19.325, non-GKI, MediaTek MT6893. Defconfig er `arch/arm64/configs/mt6893_defconfig` (`CONFIG_MACH_MT6893`, projekt `k6893v1_64`). `build.config.cupida` hører til en Realme-kerne og bruges ikke.
 
 Målet er `arch/arm64/boot/Image.gz` plus de DTB/DTBO-filer, defconfig allerede navngiver, med de options DroidSpaces kræver på en 4.19-kerne. Pakning og flash ligger uden for dette forløb.
 
 Kilde til options: [DroidSpaces kernel configuration](https://www.droidspaces.org/docs/kernel-configuration.html), afsnittet Non-GKI (3.18 til 4.19).
+
+ROM-kontekst: [LineageOS 23.2 for Nord 2 / Realme X7 Max (XDA)](https://xdaforums.com/t/rom-op6893-lineage-os-23-2-for-oneplus-nord-2-and-realme-x7-max-14-08-2026.4780682/).
+
+## Build environment
+
+Bygget og verificeret under **WSL2 på Ubuntu 26.04.1 LTS** med Android
+**clang-r547379** (clang 20.0.0) og `LLVM=1`. Makefile-rettelserne
+(`-I$(src)` / `subdir-ccflags-y`) skyldes clang 20’s include-opførsel i dette
+MTK-træ — ikke WSL som sådan. Samme toolchain på almindelig Ubuntu bør
+fungere tilsvarende.
 
 ## Hvorfor `fix_build.sh` ikke kan bruges
 
